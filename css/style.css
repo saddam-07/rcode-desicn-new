@@ -1,0 +1,744 @@
+body {
+    margin: 0;
+    font-family: "Ubuntu Sans", sans-serif;
+    max-width: 100vw; /* Ограничим ширину, чтобы предотвратить горизонтальную прокрутку */
+    overflow-x: hidden; /* Отключаем горизонтальную прокрутку */
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box; /* Все элементы учитывают отступы и границы в общей ширине */
+}
+
+.header {
+    max-width: 100vw;
+    background-color: rgb(5, 1, 0);
+    padding: 20px 0;
+    width: 100%;
+    color: white;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between; /* Разделяем элементы по краям */
+    align-items: center; /* Выравниваем по вертикали */
+}
+
+.logo {
+    margin-left: 20px; /* Добавляем небольшой отступ для логотипа */
+    text-decoration: none;
+    font-size: 17px;
+    color: white;
+    font-weight: 590;
+}
+
+.flex {
+    display: flex;
+    gap: 15px; /* Промежуток между ссылками */
+    margin-right: 20px; /* Отступ справа */
+}
+
+.flex a {
+    text-decoration: none;
+    color: white;
+    padding: 0px 15px;
+    transition: color 0.3s ease;
+    font-size: 13.5px;
+    font-weight: 500;
+}
+
+.flex a:hover {
+    color: #ccc;
+}
+
+/* Адаптивные стили для мобильных устройств */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column; /* Выстраиваем логотип и меню в колонку */
+        align-items: flex-start;
+    }
+
+    .flex {
+        flex-direction: column;
+        width: 100%; /* Занимает всю ширину */
+        align-items: flex-start; /* Выравниваем по левому краю */
+        margin-right: 0;
+        padding: 0 20px;
+    }
+
+    .flex a {
+        padding: 10px 0; /* Уменьшаем отступы для мобильных */
+        width: 100%; /* Каждая ссылка занимает 100% ширины */
+    }
+
+    .logo {
+        margin-left: 20px;
+        margin-bottom: 10px;
+    }
+}
+
+
+.slider {
+    background: url('../images/photo_2024-10-02_18-39-28.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 40px;
+    height: 620px; 
+    width: 100%;
+}
+.slider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 620px;
+    background-color: rgba(0, 0, 146, 0.466); /* Темно-синий полупрозрачный слой */
+    z-index: 0;
+    margin-top: 40px;
+}
+
+.slider-text {
+    padding-left: 200px;
+    padding-top: 190px;
+}
+
+
+
+.first-text {
+    font-size: 42px;
+    color: white;
+    margin-bottom: 10px;
+    font-family: "Ubuntu Sans", sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    opacity: 0;
+    transform: translateX(-100%);
+    animation: slide-in 1s forwards;
+}
+
+
+
+.second-text {
+    font-size: 16.8px;
+    color: gray;
+    margin-top: 28px;
+    margin-bottom: 70px;
+    opacity: 0;
+    transform: translateX(-100%);
+    animation: slide-in 0.7s forwards;
+}
+
+.slider a {
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    
+}
+
+
+
+
+
+.zakaz-btn {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    background-color: rgb(0, 103, 221);
+    color: #fff;
+    padding: 15px 45px;
+    border-radius: 30px;
+    overflow: hidden;
+
+    opacity: 0;
+    transform: translateX(-100%);
+    animation: slide-in 1s forwards;
+}
+  
+.zakaz-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 35px;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.75)); /* Использован явный белый цвет с прозрачностью */
+    transform: translateX(-4em) skewX(-45deg);
+  }
+  
+.zakaz-btn:before {
+    animation: move-light 2s infinite linear;
+  }
+  
+  @keyframes move-light {
+    from {
+      transform: translateX(-5em) skewX(-55deg);
+    }
+    to {
+      transform: translateX(40em) skewX(-55deg);
+    }
+  }
+
+
+
+.portfolio-btn {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    background-color: transparent;
+    color: #fff;
+    padding: 12.5px 45px;
+    border: 2px solid #fff;
+    border-radius: 30px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateX(-100%);
+    animation: slide-in 0.8s forwards;
+    margin-left: 10px;
+    
+}
+
+.portfolio-btn:hover {
+    color: #e9e9e9;
+}
+
+@keyframes slide-in {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+/* Стили для блоков при прокрутке */
+.section-block {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.section-block.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about {
+    width: 650px;
+    margin: 160px 180px 100px 180px;
+}
+
+.about-me-text {
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.about-me-text-2 {
+    font-size: 25px;
+}
+.about-me-text-3 {
+    font-size: 25px;
+}
+.about-me-text-4 {
+    font-size: 25px;
+}
+
+/* My-works secion */
+
+.portfolio-section {
+    text-align: center;
+    padding: 50px;
+}
+
+h2 {
+    font-size: 32px;
+    margin-bottom: 70px;
+}
+
+.portfolio-grid, .banners {
+    width: 950px;
+    display: grid;
+    gap: 15px;
+    justify-content: center;
+    margin: auto;
+}
+
+.portfolio-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.banners {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 15px;
+}
+
+/* Общие стили для изображений и баннеров */
+.portfolio-item, .banner {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    width: 300px;
+    cursor: pointer;
+}
+
+.banner {
+    width: 460px;
+}
+
+@media (max-width: 425px) {
+    .portfolio-item, .banner {
+        width: 140px;
+    }
+
+    .portfolio-grid, .banners {
+        width: 300px;
+    }
+
+    .banners .banner {
+        width: 300px;
+    }
+
+    .slider-text {
+        padding-left: 300px;
+    }
+
+}
+
+
+
+.banner a img, .portfolio-item img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 10px;
+    transition: all 0.4s ease;
+}
+
+.banner:hover img, .portfolio-item:hover img {
+    filter: brightness(60%);
+    transform: scale(1.04);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease;
+}
+
+.portfolio-item:hover .overlay, .banner:hover .overlay {
+    opacity: 1;
+}
+
+.overlay p {
+    font-size: 21px;
+    margin-bottom: 10px;
+    font-weight: 550;
+}
+
+.overlay span {
+    font-size: 16px;
+    font-weight: 100;
+}
+
+.arrow {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
+
+/* My skills section */
+
+.my-skills {
+    height: auto;
+    background-color: rgb(41, 41, 41);
+    display: grid;
+    gap: 4%;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 130px;
+    margin-bottom: 180px;
+    padding: 70px;
+    margin: auto;
+    
+}
+
+.my-skills h2 {
+    width: 230px;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+.skills {
+    width: 300px;
+    text-align: center;
+    margin: auto;
+    color: #fff;
+    font-size: 15px;
+    line-height: 25px;
+    margin-left: 70px;
+    margin-right: 0px;
+    font-weight: 100;
+
+}
+.skill .video-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 35px;
+}
+
+.third-skill p {
+    line-height: 4.5px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 425px) {
+    .third-skill p {
+        line-height: 1.4;
+        margin-bottom: -10px;
+        width: 300px;
+    }
+    .skills {
+        margin-left: -20px;
+        margin: auto;
+    }
+
+    .header .flex a {
+        display: none;
+    }
+
+    .zakaz2-btn {
+        width: 100%;
+        font-size: 5px;
+        font-weight: 400;
+    }
+
+    .portfolio-section {
+        margin: auto;
+    }
+}
+
+
+/* Contact section */
+
+
+.contact {
+    padding: 0 200px 50px 200px;
+    height: 490px;
+    margin: auto;
+}
+
+.contact .h1 {
+    font: 35px;
+    font-weight: bolder;
+    font-family: "Ubuntu Sans", sans-serif;
+    margin-bottom: 90px;
+    margin-top: -40px;
+}
+
+
+.flex-of-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.grids-of-contact {
+    width: 280px;
+    text-align: center;
+}
+
+.grids-of-contact .number {
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px 10.5px;
+    background-color: rgb(255, 238, 0);
+    border-radius: 50%;
+    float: left;
+    cursor: pointer;
+}
+.grids-of-contact .text1 {
+    text-align: left;
+    width: 250px;
+    font-size: 21px;
+    font-weight: bold;
+    float: left;
+    margin-left: 45px;
+    margin-top: -28px;
+}
+
+.grids-of-contact .text2 {
+    text-align: left;
+    float: left;
+    margin-left: 45px;
+    margin-top: 20px;
+    font-size: 14px;
+    color: black;
+    width: 285px;
+}
+
+.grids-of-contact .text3 {
+    margin-top: 0px;
+}
+
+.zakaz2-btn {
+    display: block;
+    width: 100%;
+    padding: 27px 0px 27px 0px;
+    background-color: rgb(0, 89, 255);
+    color: white;
+    font-size: 21.5px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: 60px;
+    margin-bottom: 5px;
+}
+.zakaz2-btn:hover {
+    background-color: rgb(0, 71, 204);
+}
+
+/* otzivi section */
+
+
+.reviews-section {
+    width: 100%;
+    margin: 0 auto;
+    padding: 80px 20px 80px 20px;
+    background: #eeeeee;
+    margin-bottom: 160px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#reviews-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.review-item {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.review-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.review-text {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    position: relative;
+    max-width: 620px;
+    width: 100%;
+}
+
+.review-text::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: -20px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent white transparent transparent;
+}
+
+.review-text h3 {
+    margin: 0 0 10px 0;
+    font-size: 17px;
+    color: #333;
+}
+
+.review-text p {
+    margin: 0;
+    color: #666;
+    line-height: 1.5;
+}
+
+.review-text p strong {
+    color: #3d3d3d;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
+}
+@media (max-width: 768px) {
+    .slider {
+        width: 853px;
+    }
+    .slider::before {
+        width: 853px;
+    }
+    .reviews-section {
+        padding-left: 5px;
+        width: 853px;
+    }
+    .review-item img {
+        width: 40px;
+        height: 40px;
+        margin-top: -90px;
+    }
+    .review-text {
+        width: 210px;
+    }
+
+    .review-text h3 {
+        font-size: 13px;
+    }
+    .review-text p {
+        font-size: 11px;
+    }
+    .review-text p strong {
+        font-size: 11px;
+    }
+
+    .review-text::before {
+        top: 20px;
+        left: -19px;
+    }
+
+    .portfolio-grid, .banners {
+        width: 300px;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .flex {
+        flex-direction: column;
+        align-items: center;
+        display: none;
+    }
+    .about {
+        margin: 160px 20px 100px 40px;
+        width: auto; /* Убираем фиксированную ширину */
+    }
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr); /* Изменяем на одну колонку для мобильных */
+    }
+    .banners {
+        grid-template-columns: repeat(1, 1fr); /* Изменяем на одну колонку для мобильных */
+    }
+    .my-skills {
+        padding-top: 10px;
+        grid-template-columns: repeat(1, 3fr);
+        margin: auto;
+        padding-top: 60px;
+        padding-bottom: 120px;
+        width: 100%;
+
+    }
+
+    .skills {
+        width: 300px;
+        margin: auto;
+    }
+    .contact {
+        padding: 0 20px 50px 50px; /* Уменьшаем отступы */
+    }
+    .about-section {
+        padding: 40px 20px 50px 20px; /* Уменьшаем отступы */
+    }
+    .reviews {
+        margin: 150px 20px 50px 0px; /* Уменьшаем отступы */
+    }
+    .why-me {
+        margin: 150px 20px 50px 20px; /* Уменьшаем отступы */
+    }
+
+    .zakaz2-btn {
+        margin-top: 300px;
+    }
+}
+
+@media (max-width: 375px) {
+    .grids-of-contact .text2 {
+        width: 250px;
+    }
+
+    .grids-of-contact .text3 {
+        width: 250px;
+    }
+}
+
+@media (max-width: 425px) {
+    .slider {
+        width: 515px;
+        height: 540px; /* Уменьшение высоты слайдера для мобильных устройств */
+    }
+    .slider-text {
+        padding-left: 115px; /* Уменьшение отступа для текста */
+        padding-top: 100px; /* Уменьшение верхнего отступа */
+    }
+    .first-text {
+        font-size: 30px; /* Уменьшение размера шрифта */
+    }
+    .second-text {
+        font-size: 17px; /* Уменьшение размера шрифта */
+        width: 230px;
+    }
+    .slider-buttons {
+        width: 200px;
+    }
+    .slider a {
+        margin-bottom: 3px;
+    }
+    .slider::before {
+        width: 515px;
+        height: 540px;
+    }
+
+    .about-me-text {
+        font-size: 11px;
+    }
+    .about-me-text-2, .about-me-text-3, .about-me-text-4 {
+        font-size: 20px;
+    }
+
+    .portfolio-section {
+        width: 100%;
+    }
+
+    .zakaz-btn {
+        font-size: 25px;
+    }
+    .portfolio-btn {
+        font-size: 22px;
+        padding: 13px 52px;
+        margin-left: 0;
+    }
+
+    .reviews-section {
+        width: 100%;
+    }
+}
+
+
+
+
+
