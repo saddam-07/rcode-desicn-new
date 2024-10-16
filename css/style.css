@@ -300,7 +300,11 @@ h2 {
     }
 
     .slider-text {
-        padding-left: 300px;
+        padding-left: 0;
+        width: 270px;
+        padding-right: 0;
+        padding-top: 100px;
+        margin: auto;
     }
 
 }
@@ -684,16 +688,55 @@ h2 {
     .grids-of-contact .text3 {
         width: 250px;
     }
+
+    .slider-text {
+        padding-left: 0;
+        width: 315px;
+        padding-right: 0;
+        padding-top: 100px;
+        margin: auto;
+    }
+
+    .portfolio-section {
+        padding: 0;
+    }
+
+    .my-skills {
+        padding-left: 0;
+        padding-right: 0;
+        margin-top: 40px;
+    }
+
+
+}
+
+@media (max-width: 320px) {
+    .slider-text {
+        padding-left: 0;
+        width: 375px;
+        padding-right: 0;
+        padding-top: 100px;
+        margin: auto;
+    }
+    .grids-of-contact .text1 {
+        width: 200px;
+    }
+    .grids-of-contact .text2 {
+        width: 210px;
+    }
+    .grids-of-contact .text3 {
+        width: 210px;
+    }
+
+    .zakaz2-btn {
+        margin-top: 420px;
+    }
 }
 
 @media (max-width: 425px) {
     .slider {
         width: 515px;
         height: 540px; /* Уменьшение высоты слайдера для мобильных устройств */
-    }
-    .slider-text {
-        padding-left: 115px; /* Уменьшение отступа для текста */
-        padding-top: 100px; /* Уменьшение верхнего отступа */
     }
     .first-text {
         font-size: 30px; /* Уменьшение размера шрифта */
