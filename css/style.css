@@ -87,7 +87,7 @@ html {
     background-size: cover;
     background-repeat: no-repeat;
     margin-top: 40px;
-    height: 620px; 
+    height: 700px; 
     width: 100%;
 }
 .slider::before {
@@ -96,7 +96,7 @@ html {
     top: 0;
     left: 0;
     width: 100%;
-    height: 620px;
+    height: 700px;
     background-color: rgba(0, 0, 146, 0.466); /* Темно-синий полупрозрачный слой */
     z-index: 0;
     margin-top: 40px;
@@ -440,24 +440,24 @@ h2 {
 
 
 .contact {
-    padding: 0 200px 50px 200px;
+    padding: 0 200px 50px 150px;
     height: 490px;
     margin: auto;
 }
 
 .contact .h1 {
-    font: 35px;
-    font-weight: bolder;
+    font: 26px;
+    font-weight: 1000;
     font-family: "Ubuntu Sans", sans-serif;
-    margin-bottom: 90px;
+    margin-bottom: 80px;
     margin-top: -40px;
 }
 
 
 .flex-of-contact {
     display: flex;
-    flex-wrap: wrap;
-    gap: 50px;
+    justify-content: space-evenly;
+    gap: 80px;
 }
 
 .grids-of-contact {
@@ -510,7 +510,6 @@ h2 {
     text-decoration: none;
     transition: all 0.3s ease;
     margin-top: 60px;
-    margin-bottom: 5px;
 }
 .zakaz2-btn:hover {
     background-color: rgb(0, 71, 204);
@@ -736,7 +735,7 @@ h2 {
 @media (max-width: 425px) {
     .slider {
         width: 515px;
-        height: 540px; /* Уменьшение высоты слайдера для мобильных устройств */
+        height: 630px; /* Уменьшение высоты слайдера для мобильных устройств */
     }
     .first-text {
         font-size: 30px; /* Уменьшение размера шрифта */
@@ -753,7 +752,7 @@ h2 {
     }
     .slider::before {
         width: 515px;
-        height: 540px;
+        height: 630px;
     }
 
     .about-me-text {
@@ -780,8 +779,3 @@ h2 {
         width: 100%;
     }
 }
-
-
-
-
-
