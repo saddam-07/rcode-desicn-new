@@ -739,7 +739,7 @@ h2 {
 @media (max-width: 425px) {
     .slider {
         width: 515px;
-        height: 680px; /* Уменьшение высоты слайдера для мобильных устройств */
+        height: 710px; /* Уменьшение высоты слайдера для мобильных устройств */
     }
     .first-text {
         font-size: 30px; /* Уменьшение размера шрифта */
@@ -756,7 +756,7 @@ h2 {
     }
     .slider::before {
         width: 515px;
-        height: 680px;
+        height: 710px;
     }
 
     .about-me-text {
